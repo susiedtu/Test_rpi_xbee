@@ -1,7 +1,7 @@
 /* 
  * File:   main.cpp
  * Author: Wen (reference.osch)
- *
+ *Read the Xbee end AT without checkSum function
  * Created on 10. NOV 2015, 11:15
  */
 #include <iostream>
@@ -53,16 +53,6 @@ int Xbeetransmit(int ref, unsigned char *packet, int packetLength)
     }
   return n;
 }
-/*unsigned char checkSum (unsigned char* packet_tx, int length) {
-	unsigned char res=0;
-	long sum=0;
-	for (int i =3 ; i<length-1; i++) {   
-		sum = sum+packet_tx[i];
-		}
-	res=(unsigned char) 0xFF -(sum & 0xFF);	
-
- return res;	
- }*/
 
 int main(int argc, char** argv) {                               //main loop
 
@@ -122,8 +112,6 @@ int main(int argc, char** argv) {                               //main loop
             }          
             i=0; 
             
-            //printf("checksum : %X\n", checkSum((unsigned char*)buf, (n-1)));
-           
             delay(5000);
             // Wait until we have a mouthful of data
              close(fd);
